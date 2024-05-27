@@ -12,4 +12,25 @@ def webhook(event_type, data):
     else:
         print("Веб-хук отправлен")
 
+    with open('webhook_data.txt', 'a') as f:
+        f.write(f"{payload}\n")
 
+data = {
+    "repository": {
+        "id": 123,
+        "name": "test-repo",
+        "cloneUrl": "https://github.com/sofiiila/fastapi"
+    },
+    "commits": [
+        {
+            "id": "abc123",
+            "message": "Initial commit",
+            "author": {
+                "name": "John Doe",
+                "email": "john.doe@example.com"
+            }
+        }
+    ]
+}
+
+webhook("push", data)

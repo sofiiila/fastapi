@@ -26,6 +26,11 @@ async def confluence_webhook_handler(request: Request):
 
     payload = await request.json()
 
+    print(f"Получено уведомление: {payload}")
+
+    if 'repository' not in payload:
+        return JSONResponse({"message": "Отсутствует ключ 'repository' в уведомлении"}, status_code=400)
+
     repo_url = payload["repository"]["cloneUrl"]
 
     result = subprocess.run(["git", "clone", repo_url], capture_output=True, text=True)

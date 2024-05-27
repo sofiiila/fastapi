@@ -1,5 +1,5 @@
 import subprocess
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 
@@ -14,6 +14,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/favicon.ico")
+async def favicon(request: Request):
+    raise HTTPException(status_code=204, detail=None)
 
 
 @app.get("/")

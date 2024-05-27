@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://localhost:8000/confluence-webhook"
+url = "http://192.168.0.102:8000"
 
 data = {
     "repository": {

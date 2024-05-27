@@ -5,6 +5,11 @@ from starlette.responses import JSONResponse
 app = FastAPI()
 
 
+@app.get("/")
+async def root():
+    return {"message": "Hello, World!"}
+
+
 @app.post("/confluence-webhook")
 async def confluence_webhook_handler(request: Request):
     payload = await request.json()

@@ -1,6 +1,5 @@
 import requests
 import json
-import os
 
 
 def webhook(event_type, data):

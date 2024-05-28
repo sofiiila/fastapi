@@ -12,6 +12,5 @@ def webhook(event_type, data):
     else:
         print("Веб-хук отправлен")
 
-
-
+#x'd;fkh'f;lg;nhl'\cb
 
